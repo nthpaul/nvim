@@ -35,7 +35,6 @@ return {
                 "rust_analyzer",
                 "gopls",
                 "elixirls",
-                "tsserver"
             },
             handlers = {
                 function(server_name) -- default handler (optional)

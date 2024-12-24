@@ -42,3 +42,6 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
+
+-- add relative line numbers to built-in-file explore (netrw)
+vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl relativenumber'
