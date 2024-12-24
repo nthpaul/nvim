@@ -17,6 +17,16 @@ return {
     config = function()
         require("conform").setup({
             formatters_by_ft = {
+                javascript = { "prettierd", "prettier", lsp_format = "fallback" },
+                typescript = { "prettierd", "prettier", lsp_format = "fallback" },
+                lua = { "stylua", lsp_format = "fallback" },
+                rust = { "rustfmt", lsp_format = "fallback" },
+                go = { "gofmt", lsp_format = "fallback" },
+                elixir = { "mix", lsp_format = "fallback" },
+            },
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_format = "fallback",
             }
         })
         local cmp = require('cmp')
@@ -57,7 +67,6 @@ return {
                     })
                     vim.g.zig_fmt_parse_errors = 0
                     vim.g.zig_fmt_autosave = 0
-
                 end,
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
@@ -111,4 +120,3 @@ return {
         })
     end
 }
-
