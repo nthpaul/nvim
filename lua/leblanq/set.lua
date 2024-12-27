@@ -22,5 +22,3 @@ vim.opt.updatetime = 50
 
 vim.opt.showmode = true
 vim.g.mapleader = " "
-
-
