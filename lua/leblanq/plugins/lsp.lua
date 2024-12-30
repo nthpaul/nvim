@@ -25,7 +25,7 @@ return {
                 elixir = { "mix", lsp_format = "fallback" },
             },
             format_on_save = {
-                timeout_ms = 500,
+                timeout_ms = 10000,
                 lsp_format = "fallback",
             }
         })
@@ -45,6 +45,9 @@ return {
                 "rust_analyzer",
                 "gopls",
                 "elixirls",
+                "tailwindcss",
+                "eslint",
+                "ts_ls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -81,6 +84,21 @@ return {
                             }
                         }
                     }
+                end,
+
+
+                ["eslint"] = function()
+                    local lspconfig = require("lspconfig")
+
+                    lspconfig.eslint.setup({
+                        capabilities = capabilities,
+                        -- root_dir = require("lspconfig.util").root_pattern(".eslintrc", ".eslintrc.json", ".eslintrc.js"),
+                        settings = {
+                            workingDirectory = { mode = "location" },
+                            format = true
+                        },
+                        root_dir = lspconfig.util.find_git_ancestor,
+                    })
                 end,
             }
         })
