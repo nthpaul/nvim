@@ -14,6 +14,7 @@ return {
         })
 
         local builtin = require('telescope.builtin')
+        vim.keymap.set('n', '<leader>pd', builtin.lsp_definitions, { desc = 'Telescope lsp definitions' })
         vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Telescope find files' })
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
         vim.keymap.set('n', '<leader>ps', function()
