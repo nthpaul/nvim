@@ -8,7 +8,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP"]])
-vim.keymap.set("n", "<M-F>", "gg=G``")
 vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
 
