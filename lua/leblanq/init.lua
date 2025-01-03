@@ -44,4 +44,4 @@ autocmd('LspAttach', {
 })
 
 -- add relative line numbers to built-in-file explore (netrw)
-vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl relativenumber'
+vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
