@@ -1,6 +1,6 @@
 require("leblanq.set")
 require("leblanq.remap")
-
+fdsfds
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -36,10 +36,10 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
         vim.keymap.set("n", "<leader>frn", function() vim.lsp.buf.rename() end, opts)
 
-        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+        -- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+        -- vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+        -- vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+        -- vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
         -- error diagnostics in current buffer
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
