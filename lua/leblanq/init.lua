@@ -21,6 +21,7 @@ require("lazy").setup({
 
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd([[colorscheme kanagawa]])
 
 local augroup = vim.api.nvim_create_augroup
 local leblanqGroup = augroup('leblanq', {})
