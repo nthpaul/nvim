@@ -22,7 +22,7 @@ return {
                 lua = { "stylua", lsp_format = "fallback" },
                 rust = { "rustfmt", lsp_format = "fallback" },
                 go = { "gofmt", lsp_format = "fallback" },
-                elixir = { "mix", lsp_format = "fallback" },
+                elixirls = { "mix format", lsp_format = "fallback" },
             },
             format_on_save = {
                 timeout_ms = 10000,
@@ -56,21 +56,6 @@ return {
                     }
                 end,
 
-                zls = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.zls.setup({
-                        root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
-                        settings = {
-                            zls = {
-                                enable_inlay_hints = true,
-                                enable_snippets = true,
-                                warn_style = true,
-                            },
-                        },
-                    })
-                    vim.g.zig_fmt_parse_errors = 0
-                    vim.g.zig_fmt_autosave = 0
-                end,
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
@@ -99,6 +84,38 @@ return {
                         },
                         root_dir = lspconfig.util.find_git_ancestor,
                     })
+                end,
+
+                ["elixirls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.elixirls.setup {
+                        capabilities = capabilities,
+                        cmd = { "elixir-ls" },
+                        -- root_dir = lspconfig.util.root_pattern("mix.exs", ".git"),
+                        settings = {
+                            workingDirectory = { mode = "location" },
+                            format = true
+                        },
+                        root_dir = lspconfig.util.find_git_ancestor,
+                    }
+                end,
+
+                ["tailwindcss"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.tailwindcss.setup {
+                        capabilities = capabilities,
+                        cmd = { "tailwindcss-language-server", "--stdio" },
+                        filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+                        root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts"),
+                    }
+                end,
+
+                ["ts_ls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.ts_ls.setup {
+                        capabilities = capabilities,
+                        root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+                    }
                 end,
             }
         })
