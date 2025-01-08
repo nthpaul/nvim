@@ -26,5 +26,7 @@ return {
         -- local file_browser = require("telescope").load_extension "file_browser"
 
         vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
+
+        vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = 'Telescope code action' })
     end
 }
