@@ -28,5 +28,7 @@ return {
         vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
 
         vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = 'Telescope code action' })
+
+        vim.keymap.set("n", "<leader>cf", ":Telescope git_status<CR>", { desc = 'Telescope git status' })
     end
 }
