@@ -47,11 +47,11 @@ autocmd('LspAttach', {
         -- error diagnostics in current buffer
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-        vim.keymap.set("n", "<leader>fd", function()
+        vim.keymap.set("n", "<leader>fe", function()
             vim.diagnostic.setloclist() -- or use setqflist({bufnr = 0}) if you prefer quickfix list
         end, { desc = "List buffer diagnostics" })
 
-        vim.keymap.set("n", "<leader>pd", function()
+        vim.keymap.set("n", "<leader>pe", function()
             -- Get all diagnostics from the workspace
             vim.diagnostic.setqflist({
                 severity = nil,  -- Get all severities
