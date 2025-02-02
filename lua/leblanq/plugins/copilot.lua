@@ -1,4 +1,7 @@
 return {
     "github/copilot.vim",
-    config = function() end
+    config = function()
+        -- copilot should not start on startup
+        vim.cmd(":Copilot disable")
+    end
 }
