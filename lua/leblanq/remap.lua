@@ -23,3 +23,7 @@ vim.keymap.set("n", "<leader>8", "8gt")
 vim.keymap.set("n", "<leader>9", "9gt")
 vim.keymap.set("n", "<leader>0", ":tablast<CR>")
 vim.keymap.set("n", "<leader>w", ":tabclose<CR>")
+
+-- copy path of file in current buffer
+vim.keymap.set('n', '<leader>yr', ':let @+ = expand("%")<CR>')   -- relative path
+vim.keymap.set('n', '<leader>ya', ':let @+ = expand("%:p")<CR>') -- aboslute
