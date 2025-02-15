@@ -23,22 +23,23 @@ return {
         lua = { "stylua", lsp_format = "falllback" },
         rust = { "rustfmt", lsp_format = "fallback" },
         go = { "gofmt", lsp_format = "fallback" },
-        elixir = function(bufnr)
-          if require("conform").get_formatter_info("mix", bufnr).available then
-            return { "mix" }
-          else
-            return { lsp_format = "fallback" }
-          end
-        end,
+        elixir = { lsp_format = "fallback" },
+        --        elixir = function(bufnr)
+        --          if require("conform").get_formatter_info("mix", bufnr).available then
+        --            return { "mix" }
+        --          else
+        --            return { lsp_format = "fallback" }
+        --          end
+        --        end,
         python = function(bufnr)
           local conform = require("conform")
-          if conform.get_formatter_info("ruff_format", bufnr).available then
-            return { "ruff_format" }
-          elseif
+          if
               conform.get_formatter_info("isort", bufnr).available
-              or conform.get_formatter_info("black", bufnr).available
+              and conform.get_formatter_info("black", bufnr).available
           then
             return { "isort", "black" }
+          elseif conform.get_formatter_info("ruff_format", bufnr).available then
+            return { "ruff_format" }
           else
             return { lsp_format = "fallback" }
           end
@@ -158,9 +159,9 @@ return {
           })
         end,
 
-        ["pyright"] = function()
+        ["ruff"] = function()
           local lspconfig = require("lspconfig")
-          lspconfig.pyright.setup({
+          lspconfig.ruff.setup({
             capabilities = capabilities,
             -- Increase Node.js memory limit (default is 4096 MB)
             cmd = {
