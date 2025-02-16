@@ -23,7 +23,7 @@ return {
         lua = { "stylua", lsp_format = "falllback" },
         rust = { "rustfmt", lsp_format = "fallback" },
         go = { "gofmt", lsp_format = "fallback" },
-        elixir = { lsp_format = "fallback" },
+        elixir = { "mix format", lsp_format = "fallback" },
         --        elixir = function(bufnr)
         --          if require("conform").get_formatter_info("mix", bufnr).available then
         --            return { "mix" }
