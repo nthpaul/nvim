@@ -18,19 +18,13 @@ return {
     require("conform").setup({
       log_level = vim.log.levels.DEBUG,
       formatters_by_ft = {
-        javascript = { "prettierd", "prettier", lsp_format = "fallback" },
-        typescript = { "prettierd", "prettier", lsp_format = "fallback" },
+        json = { "prettier" },
+        javascript = { "prettier", "prettierd", lsp_format = "fallback" },
+        typescript = { "prettier", "prettierd", lsp_format = "fallback" },
         lua = { "stylua", lsp_format = "falllback" },
         rust = { "rustfmt", lsp_format = "fallback" },
         go = { "gofmt", lsp_format = "fallback" },
         elixir = { lsp_format = "fallback" },
-        --        elixir = function(bufnr)
-        --          if require("conform").get_formatter_info("mix", bufnr).available then
-        --            return { "mix" }
-        --          else
-        --            return { lsp_format = "fallback" }
-        --          end
-        --        end,
         python = function(bufnr)
           local conform = require("conform")
           if
@@ -46,7 +40,7 @@ return {
         end,
       },
       format_on_save = {
-        timeout_ms = 2000,
+        timeout_ms = 5000,
         lsp_format = "fallback",
         debug = true,
       },
