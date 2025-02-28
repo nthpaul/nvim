@@ -3,23 +3,18 @@ return {
   event = "VeryLazy",
   lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+  keys = {
+    { "<leader>aa", "<CMD>AvanteAsk<CR>", desc = "Avante Ask" },
+  },
   opts = {
-    -- add any opts here
-    -- for example
     behaviour = {
       auto_suggestions = false
     },
     provider = "claude",
-    --  openai = {
-    --    endpoint = "https://api.openai.com/v1",
-    --    model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-    --    timeout = 30000,  -- timeout in milliseconds
-    --    temperature = 0,  -- adjust if needed
-    --    max_tokens = 4096,
-    --  },
     claude = {
       endpoint = "https://api.anthropic.com",
-      model = "claude-3-5-sonnet-20241022",
+      -- model = "claude-3-5-sonnet-20241022",
+      model = "claude-3-7-sonnet-20250219",
       temperature = 0,
       max_tokens = 4096,
     },

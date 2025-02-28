@@ -17,28 +17,26 @@ return {
   config = function()
     require("conform").setup({
       log_level = vim.log.levels.DEBUG,
-      formatters_by_ft = {
-        json = { "prettier" },
-        javascript = { "prettier", "prettierd", lsp_format = "fallback" },
-        typescript = { "prettier", "prettierd", lsp_format = "fallback" },
-        lua = { "stylua", lsp_format = "falllback" },
-        rust = { "rustfmt", lsp_format = "fallback" },
-        go = { "gofmt", lsp_format = "fallback" },
-        elixir = { lsp_format = "fallback" },
-        python = function(bufnr)
-          local conform = require("conform")
-          if
-              conform.get_formatter_info("isort", bufnr).available
-              and conform.get_formatter_info("black", bufnr).available
-          then
-            return { "isort", "black" }
-          elseif conform.get_formatter_info("ruff_format", bufnr).available then
-            return { "ruff_format" }
-          else
-            return { lsp_format = "fallback" }
-          end
-        end,
-      },
+      --      formatters_by_ft = {
+      --        json = { "prettier" },
+      --        lua = { "stylua", lsp_format = "falllback" },
+      --        rust = { "rustfmt", lsp_format = "fallback" },
+      --        go = { "gofmt", lsp_format = "fallback" },
+      --        elixir = { lsp_format = "fallback" },
+      --        python = function(bufnr)
+      --          local conform = require("conform")
+      --          if
+      --              conform.get_formatter_info("isort", bufnr).available
+      --              and conform.get_formatter_info("black", bufnr).available
+      --          then
+      --            return { "isort", "black" }
+      --          elseif conform.get_formatter_info("ruff_format", bufnr).available then
+      --            return { "ruff_format" }
+      --          else
+      --            return { lsp_format = "fallback" }
+      --          end
+      --        end,
+      --      },
       format_on_save = {
         timeout_ms = 5000,
         lsp_format = "fallback",
@@ -64,9 +62,7 @@ return {
         "elixirls",
         "tailwindcss",
         "eslint",
-        "ts_ls",
         "pyright",
-        -- "ruff",
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -140,41 +136,41 @@ return {
           })
         end,
 
-        ["ts_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.ts_ls.setup({
-            capabilities = capabilities,
-            root_dir = lspconfig.util.root_pattern(
-              "package.json",
-              "tsconfig.json",
-              "jsconfig.json",
-              ".git"
-            ),
-          })
-        end,
+        --  ["ts_ls"] = function()
+        --    local lspconfig = require("lspconfig")
+        --    lspconfig.ts_ls.setup({
+        --      capabilities = capabilities,
+        --      root_dir = lspconfig.util.root_pattern(
+        --        "package.json",
+        --        "tsconfig.json",
+        --        "jsconfig.json",
+        --        ".git"
+        --      ),
+        --    })
+        --  end,
 
-        ["ruff"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.ruff.setup({
-            capabilities = capabilities,
-            -- Increase Node.js memory limit (default is 4096 MB)
-            cmd = {
-              "node",
-              "--max-old-space-size=4096", -- Increase to 4GB (adjust as needed)
-              vim.fn.expand("~/.local/share/nvim/mason/bin/pyright-langserver"),
-              "--stdio",
-            },
-            settings = {
-
-              workingDirectory = { mode = "location" },
-              format = true,
-              python = {
-                pythonPath = vim.fn.exepath("python"), -- Use your Python interpreter
-              },
-            },
-            root_dir = lspconfig.util.find_git_ancestor,
-          })
-        end,
+        --         ["ruff"] = function()
+        --           local lspconfig = require("lspconfig")
+        --           lspconfig.ruff.setup({
+        --             capabilities = capabilities,
+        --             -- Increase Node.js memory limit (default is 4096 MB)
+        --             cmd = {
+        --               "node",
+        --               "--max-old-space-size=4096", -- Increase to 4GB (adjust as needed)
+        --               vim.fn.expand("~/.local/share/nvim/mason/bin/pyright-langserver"),
+        --               "--stdio",
+        --             },
+        --             settings = {
+        --
+        --               workingDirectory = { mode = "location" },
+        --               format = true,
+        --               python = {
+        --                 pythonPath = vim.fn.exepath("python"), -- Use your Python interpreter
+        --               },
+        --             },
+        --             root_dir = lspconfig.util.find_git_ancestor,
+        --           })
+        --         end,
       },
     })
 

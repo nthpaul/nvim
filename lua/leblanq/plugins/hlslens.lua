@@ -12,6 +12,5 @@ return {
       [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
       kopts)
     vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-    vim.api.nvim_set_keymap('n', '<leader>l', '<Cmd>noh<CR>', kopts)
   end
 }
