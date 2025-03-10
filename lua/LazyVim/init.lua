@@ -1,5 +1,5 @@
-require("leblanq.set")
-require("leblanq.remap")
+require("LazyVim.set")
+require("LazyVim.remap")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -15,19 +15,19 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  spec = "leblanq.plugins",
+  spec = "LazyVim.plugins",
   change_detection = { notify = false }
 })
 
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme duskfox]])
+vim.cmd([[colorscheme terafox]])
 
 local augroup = vim.api.nvim_create_augroup
-local leblanqGroup = augroup('leblanq', {})
+local LazyVimGroup = augroup('LazyVim', {})
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd('LspAttach', {
-  group = leblanqGroup,
+  group = LazyVimGroup,
   callback = function(e)
     local opts = { buffer = e.buf }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
