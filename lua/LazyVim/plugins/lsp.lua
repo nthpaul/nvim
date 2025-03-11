@@ -66,9 +66,6 @@ return {
         }
       end,
 
-      ["rust_analyzer"] = function() end,
-
-
       ["eslint"] = function()
         local lspconfig = require("lspconfig")
 
