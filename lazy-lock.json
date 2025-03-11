@@ -39,6 +39,7 @@
   "smear-cursor.nvim": { "branch": "main", "commit": "81638007bf7bbe79a78a3bfcbe8c640ec83344c0" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "626998e5c1b71c130d8bc6cf7abb6709b98287bb" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+  "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "undotree": { "branch": "master", "commit": "76c4e32d8f1aa493bb68d4a3fcd3c700395c303c" },
   "vim-be-good": { "branch": "master", "commit": "0ae3de14eb8efc6effe7704b5e46495e91931cc5" },
   "vim-fugitive": { "branch": "master", "commit": "4a745ea72fa93bb15dd077109afbb3d1809383f2" },
