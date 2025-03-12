@@ -71,13 +71,13 @@ return {
 
         lspconfig.eslint.setup({
           capabilities = capabilities,
-          -- root_dir = require("lspconfig.util").root_pattern(".eslintrc", ".eslintrc.json", ".eslintrc.js"),
           settings = {
             workingDirectory = { mode = "location" },
             format = true,
           },
-          -- root_dir = lspconfig.util.find_git_ancestor,
-          root_dir = vim.fs.dirname(vim.fs.find('.git', { path = startpath, upward = true })[1])
+          -- deprecated
+          --  root_dir = lspconfig.util.find_git_ancestor,
+          root_dir = vim.fs.dirname(vim.fs.find('.git', { path = vim.fn.getcwd(), upward = true })[1])
         })
       end,
     }
