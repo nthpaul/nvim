@@ -38,7 +38,8 @@ return {
         "vimdoc",
         "go",
         "xml",
-        "yaml"
+        "yaml",
+        "hcl"
       },
       sync_install = false,
       auto_install = true,

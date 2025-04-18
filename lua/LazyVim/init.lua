@@ -19,8 +19,8 @@ require("lazy").setup({
   change_detection = { notify = false }
 })
 
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme terafox]])
+vim.o.background = "light" -- or "light" for light mode
+vim.cmd([[colorscheme dayfox]])
 
 local augroup = vim.api.nvim_create_augroup
 local LazyVimGroup = augroup('LazyVim', {})

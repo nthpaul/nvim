@@ -55,7 +55,8 @@ return {
         "terraformls",
         "yamlls",
         "zls",
-        "bashls"
+        "bashls",
+        "hclfmt",
       },
       automatic_installation = true
     }
