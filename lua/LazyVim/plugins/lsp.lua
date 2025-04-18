@@ -56,7 +56,6 @@ return {
         "yamlls",
         "zls",
         "bashls",
-        "hclfmt",
       },
       automatic_installation = true
     }
